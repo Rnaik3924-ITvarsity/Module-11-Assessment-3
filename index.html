@@ -23,13 +23,12 @@
         </nav>
     </div>
     
-    <div class="blg-header mx-auto text-center mt-5 pt-5">
-        <h1>Is it beautiful?</h1>
-        <p class="lead">All the latest <strong><em>Tech</em></strong>, <strong><em>Design</em></strong> and <strong><em>Development</em></strong> news from the world.</p>
+    <div class="blog-header mx-auto text-center"> 
+         <h1>Is it beautiful?</h1>
+         <p class="lead">All the latest <strong><em>Tech</em></strong>, <strong><em>Design</em></strong> and <strong> <em>Development</em></strong> news from the world.</p>
     </div>
     
-    <div class="container team text-center my-4">
-        <!-- Team Members -->
+    <div class="container team">
         <img src="img/thandi.jpg" class="img-thumbnail rounded-circle" width="90"/>
         <img src="img/john.jpg" class="img-thumbnail rounded-circle" width="90"/>
         <img src="img/sally.jpg" class="img-thumbnail rounded-circle" width="90"/>
@@ -65,19 +64,19 @@
         function getAllPosts() {
             const category = "getAll";
             fetchPosts(category);
-            setActiveLink("getAll");
+            setActiveLink(caregory);
         }
 
         function getPopularPosts() {
             const category = "getPopular";
             fetchPosts(category);
-            setActiveLink("getPopular");
+            setActiveLink(category);
         }
 
         function getLatestPosts() {
             const category = "getLatest";
             fetchPosts(category);
-            setActiveLink("getLatest");
+            setActiveLink(category);
         }
 
         function fetchPosts(category) {
@@ -95,7 +94,7 @@
         }
         
         function displayPosts(data) {
-            let output = "";
+            var output = "";
             
             for (let a = 0; a < data.length; a++) {
                 output += `
@@ -104,7 +103,7 @@
                             <h4 class="my-0 font-weight-normal">${data[a][0]}</h4>
                         </div>
                         <div class="card-body">
-                            <img src="${rootPath}/uploads/${data[a][0]}" class="card-img-top"/>
+                            <img src="${rootPath}/uploads/${data[a][3]}" class="card-img-top"/>
                             <p class="card-text">${data[a][1]}</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
@@ -118,7 +117,6 @@
                     </div>
                 `;
             }
-            
             document.getElementById("posts").innerHTML = output;
         }  
 
